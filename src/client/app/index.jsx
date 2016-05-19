@@ -1,5 +1,16 @@
 import React from 'react';
 import {render} from 'react-dom';
-import RecentChangesApp from './RecentChangesApp.jsx';
+import LikeComponent from './LikeComponent.jsx';
 
-render(<RecentChangesApp/>, document.getElementById('app'));
+class App extends React.Component {
+  render () {
+    return (
+        <div>
+          <p> Hello React!</p>
+          <LikeComponent />
+        </div>
+    );
+  }
+}
+
+render(<App/>, document.getElementById('app'));
