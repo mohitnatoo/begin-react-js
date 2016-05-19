@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fae654ad-c7ad-4f89-982a-3927a6886f6a" name="Default" comment="" />
+    <list default="true" id="fae654ad-c7ad-4f89-982a-3927a6886f6a" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/app/BookList.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/app/BookStore.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/app/DeliveryDetails.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/app/ShippingDetails.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/public/bundle.js.map" afterPath="$PROJECT_DIR$/src/client/public/bundle.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/public/bundle.js" afterPath="$PROJECT_DIR$/src/client/public/bundle.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/app/index.jsx" afterPath="$PROJECT_DIR$/src/client/app/index.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
+    <list id="c52ef94f-c183-46ee-8b4a-eb553fb8ce59" name="ignore" comment="" />
     <ignored path="reactjs_app.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -22,12 +33,56 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.jsx" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/client/app/index.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.04464286">
-              <caret line="2" column="52" selection-start-line="2" selection-start-column="52" selection-end-line="2" selection-end-column="52" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BookStore.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/app/BookStore.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BookList.jsx" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/client/app/BookList.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6945701">
+              <caret line="84" column="3" selection-start-line="84" selection-start-column="3" selection-end-line="84" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShippingDetails.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/app/ShippingDetails.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+              <folding>
+                <marker date="1463664376000" expanded="true" signature="103:164" placeholder="&lt;xml/&gt;" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DeliveryDetails.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/app/DeliveryDetails.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+              <folding>
+                <marker date="1463664376000" expanded="true" signature="103:161" placeholder="&lt;xml/&gt;" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -45,8 +100,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/client/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="94" selection-start-line="15" selection-start-column="94" selection-end-line="15" selection-end-column="94" />
+            <state vertical-scroll-proportion="-14.375">
+              <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -75,7 +130,7 @@
       <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.0">
+            <state vertical-scroll-proportion="0.0">
               <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
               <folding />
             </state>
@@ -84,6 +139,9 @@
       </file>
     </leaf>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -91,8 +149,12 @@
         <option value="$PROJECT_DIR$/src/client/index.html" />
         <option value="$PROJECT_DIR$/webpack.config.js" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/src/client/app/index.jsx" />
         <option value="$PROJECT_DIR$/src/client/app/RecentChangesApp.jsx" />
+        <option value="$PROJECT_DIR$/src/client/app/DeliveryDetails.jsx" />
+        <option value="$PROJECT_DIR$/src/client/app/ShippingDetails.jsx" />
+        <option value="$PROJECT_DIR$/src/client/app/index.jsx" />
+        <option value="$PROJECT_DIR$/src/client/app/BookStore.jsx" />
+        <option value="$PROJECT_DIR$/src/client/app/BookList.jsx" />
       </list>
     </option>
   </component>
@@ -104,12 +166,12 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="21" />
-    <option name="y" value="33" />
+    <option name="x" value="14" />
+    <option name="y" value="23" />
     <option name="width" value="1419" />
     <option name="height" value="818" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -132,6 +194,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -246,8 +310,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -365,6 +427,9 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="fae654ad-c7ad-4f89-982a-3927a6886f6a" name="Default" comment="" />
@@ -375,20 +440,21 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="21" y="33" width="1419" height="818" extended-state="0" />
-    <editor active="true" />
+    <frame x="14" y="23" width="1419" height="818" extended-state="0" />
+    <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25344953" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2570806" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32857144" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -406,6 +472,54 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/client/app/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/app/RecentChangesApp.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="80" column="32" selection-start-line="80" selection-start-column="32" selection-end-line="80" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="94" selection-start-line="15" selection-start-column="94" selection-end-line="15" selection-end-column="94" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.babelrc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/app/index.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -468,14 +582,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="94" selection-start-line="15" selection-start-column="94" selection-end-line="15" selection-end-column="94" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -486,9 +592,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.375">
+          <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/app/DeliveryDetails.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+          <folding>
+            <marker date="1463664376000" expanded="true" signature="103:161" placeholder="&lt;xml/&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/app/ShippingDetails.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+          <folding>
+            <marker date="1463664376000" expanded="true" signature="103:164" placeholder="&lt;xml/&gt;" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -502,8 +636,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/client/app/index.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.04464286">
-          <caret line="2" column="52" selection-start-line="2" selection-start-column="52" selection-end-line="2" selection-end-column="52" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/app/BookStore.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/app/BookList.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6945701">
+          <caret line="84" column="3" selection-start-line="84" selection-start-column="3" selection-end-line="84" selection-end-column="3" />
           <folding />
         </state>
       </provider>

@@ -1,5 +1,8 @@
-import React from 'react';
-import {render} from 'react-dom';
-import RecentChangesApp from './RecentChangesApp.jsx';
+// src/index.js
 
-render(<RecentChangesApp/>, document.getElementById('app'));
+import React from 'react';
+import ReactDOM from 'react-dom';
+import BookStore from './BookStore.jsx';
+
+ReactDOM.render(<BookStore />,
+    document.getElementById('app'));

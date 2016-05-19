@@ -55,13 +55,15 @@
 	
 	var _reactDom = __webpack_require__(/*! react-dom */ 33);
 	
-	var _RecentChangesApp = __webpack_require__(/*! ./RecentChangesApp.jsx */ 168);
+	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _RecentChangesApp2 = _interopRequireDefault(_RecentChangesApp);
+	var _BookStore = __webpack_require__(/*! ./BookStore.jsx */ 168);
+	
+	var _BookStore2 = _interopRequireDefault(_BookStore);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	(0, _reactDom.render)(_react2.default.createElement(_RecentChangesApp2.default, null), document.getElementById('app'));
+	_reactDom2.default.render(_react2.default.createElement(_BookStore2.default, null), document.getElementById('app')); // src/index.js
 
 /***/ },
 /* 1 */
@@ -20657,9 +20659,62 @@
 
 /***/ },
 /* 168 */
-/*!*********************************************!*\
-  !*** ./src/client/app/RecentChangesApp.jsx ***!
-  \*********************************************/
+/*!**************************************!*\
+  !*** ./src/client/app/BookStore.jsx ***!
+  \**************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _BookList = __webpack_require__(/*! ./BookList.jsx */ 169);
+	
+	var _BookList2 = _interopRequireDefault(_BookList);
+	
+	var _ShippingDetails = __webpack_require__(/*! ./ShippingDetails.jsx */ 170);
+	
+	var _ShippingDetails2 = _interopRequireDefault(_ShippingDetails);
+	
+	var _DeliveryDetails = __webpack_require__(/*! ./DeliveryDetails.jsx */ 171);
+	
+	var _DeliveryDetails2 = _interopRequireDefault(_DeliveryDetails);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var BookStore = _react2.default.createClass({
+	  displayName: 'BookStore',
+	  getInitialState: function getInitialState() {
+	    return { step: 1 };
+	  },
+	  handleSubmit: function handleSubmit() {
+	    this.setState({ step: this.state.step + 1 });
+	  },
+	  render: function render() {
+	    switch (this.state.step) {
+	      case 1:
+	        return _react2.default.createElement(_BookList2.default, { submitHandler: this.handleSubmit });
+	      case 2:
+	        return _react2.default.createElement(_ShippingDetails2.default, { submitHandler: this.handleSubmit });
+	      case 3:
+	        return _react2.default.createElement(_DeliveryDetails2.default, { submitHandler: this.handleSubmit });
+	    }
+	  }
+	});
+	
+	exports.default = BookStore;
+
+/***/ },
+/* 169 */
+/*!*************************************!*\
+  !*** ./src/client/app/BookList.jsx ***!
+  \*************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20674,132 +20729,161 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var Heading = _react2.default.createClass({
-	  displayName: 'Heading',
-	
-	  render: function render() {
-	    var headingStyle = {
-	      backgroundColor: 'FloralWhite',
-	      fontSize: '19px'
+	var BookList = _react2.default.createClass({
+	  displayName: 'BookList',
+	  getInitialState: function getInitialState() {
+	    return { books: [{ name: 'Zero to One', author: 'Peter Thiel' }, { name: 'Monk who sold his Ferrari', author: 'Robin Sharma' }, { name: 'Wings of Fire', author: 'A.P.J. Abdul Kalam' }],
+	      selectedBooks: [],
+	      errors: false
 	    };
+	  },
+	  _renderBook: function _renderBook(book) {
 	    return _react2.default.createElement(
-	      'th',
-	      { style: headingStyle },
-	      ' ',
-	      this.props.heading,
-	      ' '
-	    );
-	  }
-	});
-	var Headings = _react2.default.createClass({
-	  displayName: 'Headings',
-	
-	  render: function render() {
-	    var headings = this.props.headings.map(function (name, index) {
-	      return _react2.default.createElement(Heading, { key: "heading-" + index, heading: name });
-	    });
-	
-	    return _react2.default.createElement(
-	      'tr',
-	      { className: 'table-th' },
-	      ' ',
-	      headings,
-	      ' '
-	    );
-	  }
-	});
-	var Row = _react2.default.createClass({
-	  displayName: 'Row',
-	
-	  render: function render() {
-	    var trStyle = { backgroundColor: 'aliceblue' };
-	    return _react2.default.createElement(
-	      'tr',
-	      { style: trStyle },
+	      'div',
+	      { className: 'checkbox' },
 	      _react2.default.createElement(
-	        'td',
+	        'label',
 	        null,
+	        _react2.default.createElement('input', { type: 'checkbox', value: book.name, onChange: this._handleBookSelection }),
 	        ' ',
-	        this.props.changeSet.when,
-	        ' '
+	        book.name,
+	        ' -- ',
+	        book.author
+	      )
+	    );
+	  },
+	  _handleBookSelection: function _handleBookSelection(event) {
+	    var selectedBooks = this.state.selectedBooks;
+	    var bookIndex = selectedBooks.indexOf(event.target.value);
+	    if (event.target.checked) {
+	      if (bookIndex == -1) selectedBooks.push(event.target.value);
+	    } else {
+	      selectedBooks.splice(bookIndex, 1);
+	    }
+	    return this.setState({ selectedBooks: selectedBooks });
+	  },
+	  _handleSubmit: function _handleSubmit(event) {
+	    event.preventDefault();
+	    if (this.state.selectedBooks.length == 0) {
+	      this.setState({ error: 'Please select at least one book' });
+	    } else {
+	      this.setState({ error: false });
+	      this.props.submitHandler();
+	    }
+	  },
+	  _renderError: function _renderError() {
+	    if (this.state.error) {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'alert alert-danger' },
+	        this.state.error
+	      );
+	    }
+	  },
+	  render: function render() {
+	    var _this = this;
+	
+	    var errorMessage = this._renderError();
+	    return _react2.default.createElement(
+	      'div',
+	      null,
+	      _react2.default.createElement(
+	        'h3',
+	        null,
+	        'Choose from wide variety of books available in our store.'
 	      ),
 	      _react2.default.createElement(
-	        'td',
-	        null,
-	        ' ',
-	        this.props.changeSet.who,
-	        ' '
-	      ),
-	      _react2.default.createElement(
-	        'td',
-	        null,
-	        ' ',
-	        this.props.changeSet.description,
-	        ' '
+	        'form',
+	        { onSubmit: this._handleSubmit },
+	        errorMessage,
+	        this.state.books.map(function (book) {
+	          return _this._renderBook(book);
+	        }),
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement(
+	          'h4',
+	          null,
+	          'You have selected following books'
+	        ),
+	        this.state.selectedBooks.map(function (bookName) {
+	          return _react2.default.createElement(
+	            'label',
+	            null,
+	            bookName
+	          );
+	        }),
+	        _react2.default.createElement('input', { type: 'submit', className: 'btn btn-success' })
 	      )
 	    );
 	  }
 	});
-	var Rows = _react2.default.createClass({
-	  displayName: 'Rows',
 	
+	exports.default = BookList;
+
+/***/ },
+/* 170 */
+/*!********************************************!*\
+  !*** ./src/client/app/ShippingDetails.jsx ***!
+  \********************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var ShippingDetails = _react2.default.createClass({
+	  displayName: 'ShippingDetails',
 	  render: function render() {
-	    var rows = this.props.changeSets.map(function (changeSet, index) {
-	      return _react2.default.createElement(Row, { key: index, changeSet: changeSet });
-	    });
-	
 	    return _react2.default.createElement(
-	      'tbody',
+	      'h1',
 	      null,
-	      rows
+	      'Enter your shipping information.'
 	    );
 	  }
 	});
 	
-	var RecentChangesApp = _react2.default.createClass({
-	  displayName: 'RecentChangesApp',
-	  getDefaultProps: function getDefaultProps() {
-	    return {
-	      headings: ['Update at', 'Author', 'Change']
-	    };
-	  },
+	exports.default = ShippingDetails;
+
+/***/ },
+/* 171 */
+/*!********************************************!*\
+  !*** ./src/client/app/DeliveryDetails.jsx ***!
+  \********************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
 	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
 	
-	  getInitialState: function getInitialState() {
-	    return { changeSets: [] };
-	  },
-	  mapOpenLibraryDataToChangeSet: function mapOpenLibraryDataToChangeSet(data) {
-	    return data.map(function (change, index) {
-	      return {
-	        "when": jQuery.timeago(change.timestamp),
-	        "who": change.author.key,
-	        "description": change.comment
-	      };
-	    });
-	  },
-	  componentDidMount: function componentDidMount() {
-	    $.ajax({
-	      url: 'http://openlibrary.org/recentchanges.json?limit=10',
-	      context: this,
-	      dataType: 'json',
-	      type: 'GET'
-	    }).done(function (data) {
-	      var changeSets = this.mapOpenLibraryDataToChangeSet(data);
-	      this.setState({ changeSets: changeSets });
-	    });
-	  },
+	var _react = __webpack_require__(/*! react */ 1);
 	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var DeliveryDetails = _react2.default.createClass({
+	  displayName: 'DeliveryDetails',
 	  render: function render() {
 	    return _react2.default.createElement(
-	      'table',
-	      { className: 'table' },
-	      _react2.default.createElement(Headings, { headings: this.props.headings }),
-	      _react2.default.createElement(Rows, { changeSets: this.state.changeSets })
+	      'h1',
+	      null,
+	      'Choose from delivery options.'
 	    );
 	  }
 	});
 	
-	exports.default = RecentChangesApp;
+	exports.default = DeliveryDetails;
 
 /***/ }
 /******/ ]);
