@@ -20678,20 +20678,27 @@
 	
 	var _BookList2 = _interopRequireDefault(_BookList);
 	
-	var _ShippingDetails = __webpack_require__(/*! ./ShippingDetails.jsx */ 170);
+	var _ShippingDetails = __webpack_require__(/*! ./ShippingDetails.jsx */ 172);
 	
 	var _ShippingDetails2 = _interopRequireDefault(_ShippingDetails);
 	
-	var _DeliveryDetails = __webpack_require__(/*! ./DeliveryDetails.jsx */ 171);
+	var _DeliveryDetails = __webpack_require__(/*! ./DeliveryDetails.jsx */ 173);
 	
 	var _DeliveryDetails2 = _interopRequireDefault(_DeliveryDetails);
+	
+	var _SetIntervalMixin = __webpack_require__(/*! ./SetIntervalMixin.jsx */ 170);
+	
+	var _SetIntervalMixin2 = _interopRequireDefault(_SetIntervalMixin);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var BookStore = _react2.default.createClass({
 	  displayName: 'BookStore',
 	  getInitialState: function getInitialState() {
-	    return { step: 1 };
+	    return { step: 1, timeOut: 60 * 15 };
+	  },
+	  updateTimeOut: function updateTimeOut(timeOut) {
+	    this.setState({ timeOut: timeOut });
 	  },
 	  handleSubmit: function handleSubmit() {
 	    this.setState({ step: this.state.step + 1 });
@@ -20699,7 +20706,21 @@
 	  render: function render() {
 	    switch (this.state.step) {
 	      case 1:
-	        return _react2.default.createElement(_BookList2.default, { submitHandler: this.handleSubmit });
+	        return _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'well' },
+	            _react2.default.createElement('span', { className: 'glyphicon glyphicon-time', 'aria-hidden': 'true' }),
+	            ' You have ',
+	            this.state.timeOut,
+	            ' Seconds remaining'
+	          ),
+	          _react2.default.createElement(_BookList2.default, { submitHandler: this.handleSubmit,
+	            timeOut: this.state.timeOut,
+	            updateTimeOut: this.updateTimeOut })
+	        );
 	      case 2:
 	        return _react2.default.createElement(_ShippingDetails2.default, { submitHandler: this.handleSubmit });
 	      case 3:
@@ -20717,7 +20738,7 @@
   \*************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -20727,27 +20748,40 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _SetIntervalMixin = __webpack_require__(/*! ./SetIntervalMixin.jsx */ 170);
+	
+	var _SetIntervalMixin2 = _interopRequireDefault(_SetIntervalMixin);
+	
+	var _TimeOutMixin = __webpack_require__(/*! ./TimeOutMixin.jsx */ 171);
+	
+	var _TimeOutMixin2 = _interopRequireDefault(_TimeOutMixin);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var BookList = _react2.default.createClass({
-	  displayName: 'BookList',
+	  displayName: "BookList",
+	
+	
+	  mixins: [_SetIntervalMixin2.default, _TimeOutMixin2.default],
+	
 	  getInitialState: function getInitialState() {
 	    return { books: [{ name: 'Zero to One', author: 'Peter Thiel' }, { name: 'Monk who sold his Ferrari', author: 'Robin Sharma' }, { name: 'Wings of Fire', author: 'A.P.J. Abdul Kalam' }],
 	      selectedBooks: [],
-	      errors: false
+	      errors: false,
+	      timeOut: this.props.timeOut
 	    };
 	  },
 	  _renderBook: function _renderBook(book) {
 	    return _react2.default.createElement(
-	      'div',
-	      { className: 'checkbox' },
+	      "div",
+	      { className: "checkbox" },
 	      _react2.default.createElement(
-	        'label',
+	        "label",
 	        null,
-	        _react2.default.createElement('input', { type: 'checkbox', value: book.name, onChange: this._handleBookSelection }),
-	        ' ',
+	        _react2.default.createElement("input", { type: "checkbox", value: book.name, onChange: this._handleBookSelection }),
+	        " ",
 	        book.name,
-	        ' -- ',
+	        " -- ",
 	        book.author
 	      )
 	    );
@@ -20774,8 +20808,8 @@
 	  _renderError: function _renderError() {
 	    if (this.state.error) {
 	      return _react2.default.createElement(
-	        'div',
-	        { className: 'alert alert-danger' },
+	        "div",
+	        { className: "alert alert-danger" },
 	        this.state.error
 	      );
 	    }
@@ -20783,37 +20817,53 @@
 	  render: function render() {
 	    var _this = this;
 	
+	    var minutes = Math.floor(this.state.timeOut / 60);
+	    var seconds = this.state.timeOut - minutes * 60;
 	    var errorMessage = this._renderError();
 	    return _react2.default.createElement(
-	      'div',
+	      "div",
 	      null,
 	      _react2.default.createElement(
-	        'h3',
+	        "h3",
 	        null,
-	        'Choose from wide variety of books available in our store.'
+	        "Choose from wide variety of books available in our store."
 	      ),
 	      _react2.default.createElement(
-	        'form',
-	        { onSubmit: this._handleSubmit },
-	        errorMessage,
-	        this.state.books.map(function (book) {
-	          return _this._renderBook(book);
-	        }),
-	        _react2.default.createElement('br', null),
-	        _react2.default.createElement('br', null),
+	        "div",
+	        null,
 	        _react2.default.createElement(
-	          'h4',
-	          null,
-	          'You have selected following books'
-	        ),
-	        this.state.selectedBooks.map(function (bookName) {
-	          return _react2.default.createElement(
-	            'label',
+	          "form",
+	          { onSubmit: this._handleSubmit },
+	          errorMessage,
+	          this.state.books.map(function (book) {
+	            return _this._renderBook(book);
+	          }),
+	          _react2.default.createElement("br", null),
+	          _react2.default.createElement("br", null),
+	          _react2.default.createElement(
+	            "h4",
 	            null,
-	            bookName
-	          );
-	        }),
-	        _react2.default.createElement('input', { type: 'submit', className: 'btn btn-success' })
+	            "You have selected following books"
+	          ),
+	          this.state.selectedBooks.map(function (bookName) {
+	            return _react2.default.createElement(
+	              "label",
+	              null,
+	              bookName
+	            );
+	          }),
+	          _react2.default.createElement("input", { type: "submit", className: "btn btn-success" })
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "well" },
+	        _react2.default.createElement("span", { className: "glyphicon glyphicon-time", "aria-hidden": "true" }),
+	        " You have ",
+	        minutes,
+	        " Minutes, ",
+	        seconds,
+	        " Seconds remaining."
 	      )
 	    );
 	  }
@@ -20823,6 +20873,91 @@
 
 /***/ },
 /* 170 */
+/*!*********************************************!*\
+  !*** ./src/client/app/SetIntervalMixin.jsx ***!
+  \*********************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var SetIntervalMixin = {
+	
+	  componentWillMount: function componentWillMount() {
+	    this.intervals = [];
+	  },
+	
+	  setInterval: function (_setInterval) {
+	    function setInterval() {
+	      return _setInterval.apply(this, arguments);
+	    }
+	
+	    setInterval.toString = function () {
+	      return _setInterval.toString();
+	    };
+	
+	    return setInterval;
+	  }(function () {
+	    this.intervals.push(setInterval.apply(null, arguments));
+	  }),
+	
+	  componentWillUnmount: function componentWillUnmount() {
+	    this.intervals.map(clearInterval);
+	  }
+	};
+	
+	module.exports = SetIntervalMixin;
+	
+	exports.default = SetIntervalMixin;
+
+/***/ },
+/* 171 */
+/*!*****************************************!*\
+  !*** ./src/client/app/TimeOutMixin.jsx ***!
+  \*****************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var TimeoutMixin = {
+	  componentWillMount: function componentWillMount() {
+	    this.setInterval(this.decrementTimer, 1000);
+	  },
+	
+	  decrementTimer: function decrementTimer() {
+	    if (this.state.timeOut == 0) {
+	      this.props.alertTimeout();
+	      return;
+	    }
+	    this.setState({ timeOut: this.state.timeOut - 1 });
+	  }
+	};
+	
+	module.exports = TimeoutMixin;
+	
+	exports.default = TimeoutMixin;
+
+/***/ },
+/* 172 */
 /*!********************************************!*\
   !*** ./src/client/app/ShippingDetails.jsx ***!
   \********************************************/
@@ -20854,7 +20989,7 @@
 	exports.default = ShippingDetails;
 
 /***/ },
-/* 171 */
+/* 173 */
 /*!********************************************!*\
   !*** ./src/client/app/DeliveryDetails.jsx ***!
   \********************************************/
